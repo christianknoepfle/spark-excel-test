@@ -21,7 +21,7 @@ object SparkMain {
     // read the provided csv then write it using crealytics v1 api
     // then read it back and print content
     val dfCsv = spark.read
-      .format("csv")
+      .format("simple_csv")
       .option("delimiter", ";")
       .option("header", "true")
       .option("path", "src/main/resources/simple.csv")
@@ -48,7 +48,7 @@ object SparkMain {
     // read the provided csv then write it using crealytics v1 api
     // then read it back and print content
     val dfCsv = spark.read
-      .format("csv")
+      .format("simple_csv")
       .option("delimiter", ";")
       .option("header", "true")
       .option("path", "src/main/resources/simple.csv")

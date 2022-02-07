@@ -36,7 +36,7 @@ class ExcelReadWriteTest extends AnyWordSpec with SparkTestApp {
     "read a dataframe from xlsx" in {
       val dfExcel = spark.read
         .format("com.crealytics.spark.excel")
-        .option("path", "src/main/resources/xlsx/test_simple.xlsx")
+        .option("path", "src/main/resources/simple_excel/test_simple.xlsx")
         .option("header", true)
         .load()
 
@@ -50,7 +50,7 @@ class ExcelReadWriteTest extends AnyWordSpec with SparkTestApp {
         .format("csv")
         .option("delimiter", ";")
         .option("header", "true")
-        .option("path", "src/main/resources/csv/simple.csv")
+        .option("path", "src/main/resources/simple_csv")
         .load()
 
       val targetFile = s"${targetDir}/test_simple.xlsx"
@@ -71,7 +71,7 @@ class ExcelReadWriteTest extends AnyWordSpec with SparkTestApp {
       // read any xlsx from given path
       val dfExcel = spark.read
         .format("excel")
-        .option("path", "src/main/resources/xlsx")
+        .option("path", "src/main/resources/simple_excel")
         .option("header", true)
         .load()
 
@@ -86,7 +86,7 @@ class ExcelReadWriteTest extends AnyWordSpec with SparkTestApp {
         .format("csv")
         .option("delimiter", ";")
         .option("header", "true")
-        .option("path", "src/main/resources/simple.csv")
+        .option("path", "src/main/resources/simple_csv")
         .load()
 
       dfCsv.write
@@ -96,6 +96,7 @@ class ExcelReadWriteTest extends AnyWordSpec with SparkTestApp {
         .mode(SaveMode.Overwrite)
         .save()
 
+      // simple check that we wrote a file
       val filesInTargetDir = Files.list(Paths.get(targetDir))
       assert(filesInTargetDir.count() == 1)
     }
