@@ -5,3 +5,10 @@ to demonstrate the issue with crealytics spark-excel and the datasource v2 api b
 
 This relates to issue A and B
 
+
+There are some very basic tests for V1/V2 API.
+
+Simply do a
+
+    sbt test
+
