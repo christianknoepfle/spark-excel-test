@@ -5,7 +5,7 @@ version := "0.1"
 scalaVersion := "2.12.12"
 
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.0.3"
-libraryDependencies += "com.crealytics" %% "spark-excel" % "3.0.3_0.16.4"
+libraryDependencies += "com.crealytics" %% "spark-excel" % "3.0.3_0.16.5-pre1"
 
 //this is for test only
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.2.10" % "test"
